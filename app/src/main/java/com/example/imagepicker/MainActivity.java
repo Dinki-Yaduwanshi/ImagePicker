@@ -36,34 +36,35 @@ public class MainActivity extends AppCompatActivity {
         //initialize components
         cover = findViewById(R.id.imageView);
         fab=findViewById(R.id.floatingActionButton);
+        ActivityResultLauncher<Intent> launcher=
+                registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(ActivityResult result)->{
+                    if(result.getResultCode()==RESULT_OK){
+                        Uri uri=result.getData().getData();
+                        // Use the uri to load the image
+                    }else if(result.getResultCode()==ImagePicker.RESULT_ERROR){
+                        // Use ImagePicker.Companion.getError(result.getData()) to show an error
+                    }
+                });
+      fab.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
 
-     fab.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View v) {
+              ImagePicker.Companion.with(MainActivity.this)
+                      .crop()
+                      .cropOval()
+                      .maxResultSize(512,512,true)
+                      .provider(ImageProvider.BOTH) //Or bothCameraGallery()
+                      .createIntentFromDialog((Function1)(new Function1(){
+                          public Object invoke(Object var1){
+                              this.invoke((Intent)var1);
+                              return Unit.INSTANCE;
+                          }
 
-
-                     //...
-
-             ImagePicker.Companion.with(MainActivity.this)
-                     .crop()
-                     .cropOval()
-                     .maxResultSize(512,512,true)
-                     .provider(ImageProvider.BOTH)
-                     .createIntentFromDialog((Function1)(new Function1(){
-                         public Object invoke(Object var1){
-                             this.invoke((Intent)var1);
-                             return Unit.INSTANCE;
-                         }
-
-                         public final void invoke(@NotNull Intent it){
-                             Intrinsics.checkNotNullParameter(it,"it");
-
-                             ActivityResultLauncher<Intent> launcher = null;
-                             launcher.launch(it);
-                         }
-                     }));
-
-
-    }
-});
+                          public final void invoke(@NotNull Intent it){
+                              Intrinsics.checkNotNullParameter(it,"it");
+                              launcher.launch(it);
+                          }
+                      }));
+          }
+      });
     }}
