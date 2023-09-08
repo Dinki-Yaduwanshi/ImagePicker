@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         //initialize components
         cover = findViewById(R.id.imageView);
         fab=findViewById(R.id.floatingActionButton);
+
         ActivityResultLauncher<Intent> launcher=
                 registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(ActivityResult result)->{
                     if(result.getResultCode()==RESULT_OK){
@@ -46,23 +47,19 @@ public class MainActivity extends AppCompatActivity {
                         // Use ImagePicker.Companion.getError(result.getData()) to show an error
                     }
                 });
+
       fab.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
 
-              ImagePicker.Companion.with(MainActivity.this);
-                    /*  .crop()
+              ImagePicker.Companion.with(MainActivity.this)
+                      .crop()
                       .cropOval()
-                      .maxResultSize(512,512,true);*/
-
-              launcher.launch(
-                      ImagePicker.with(MainActivity.this)
-                              .cameraOnly().createIntent()
-
-              );
+                      .maxResultSize(512,512,true)
+                      .provider(ImageProvider.BOTH)
 
 
-                   /*  .createIntentFromDialog((Function1)(new Function1(){
+                     .createIntentFromDialog((Function1)(new Function1(){
                           public Object invoke(Object var1){
                               this.invoke((Intent)var1);
                               return Unit.INSTANCE;
@@ -70,14 +67,10 @@ public class MainActivity extends AppCompatActivity {
 
                           public final void invoke(@NotNull Intent it){
                               Intrinsics.checkNotNullParameter(it,"it");
-                              launcher.launch(
-                              ImagePicker.with(MainActivity.this)
-                                      .cameraOnly().createIntent()
-
-                              );
+                              launcher.launch( it);
 
                           }
-                      }));*/
+                      }));
           }
       });
     }
