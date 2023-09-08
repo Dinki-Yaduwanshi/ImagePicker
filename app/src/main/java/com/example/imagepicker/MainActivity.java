@@ -29,7 +29,7 @@ import kotlin.jvm.internal.Intrinsics;
 public class MainActivity extends AppCompatActivity {
     ImageView cover;
     FloatingActionButton fab;
-
+    // this is for both
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
