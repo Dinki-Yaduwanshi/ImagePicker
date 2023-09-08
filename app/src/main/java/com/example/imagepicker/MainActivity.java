@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
               launcher.launch(
                       ImagePicker.with(MainActivity.this)
-                              .galleryOnly().createIntent()
+                              .cameraOnly().createIntent()
 
               );
 
