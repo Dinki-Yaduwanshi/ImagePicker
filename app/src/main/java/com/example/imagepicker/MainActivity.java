@@ -50,12 +50,19 @@ public class MainActivity extends AppCompatActivity {
           @Override
           public void onClick(View v) {
 
-              ImagePicker.Companion.with(MainActivity.this)
-                      .crop()
+              ImagePicker.Companion.with(MainActivity.this);
+                    /*  .crop()
                       .cropOval()
-                      .maxResultSize(512,512,true)
-                      .provider(ImageProvider.BOTH) //Or bothCameraGallery()
-                      .createIntentFromDialog((Function1)(new Function1(){
+                      .maxResultSize(512,512,true);*/
+
+              launcher.launch(
+                      ImagePicker.with(MainActivity.this)
+                              .galleryOnly().createIntent()
+
+              );
+
+
+                   /*  .createIntentFromDialog((Function1)(new Function1(){
                           public Object invoke(Object var1){
                               this.invoke((Intent)var1);
                               return Unit.INSTANCE;
@@ -63,9 +70,14 @@ public class MainActivity extends AppCompatActivity {
 
                           public final void invoke(@NotNull Intent it){
                               Intrinsics.checkNotNullParameter(it,"it");
-                              launcher.launch(it);
+                              launcher.launch(
+                              ImagePicker.with(MainActivity.this)
+                                      .cameraOnly().createIntent()
+
+                              );
+
                           }
-                      }));
+                      }));*/
           }
       });
     }
