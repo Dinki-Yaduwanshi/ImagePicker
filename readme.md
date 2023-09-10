@@ -16,7 +16,7 @@ implementation 'com.github.Drjacky:ImagePicker:2.3.22'
 implementation 'de.hdodenhof:circleimageview:3.1.0'
 ```
 # Demo
-https://www.loom.com/share/27dbe32cc90649e5a3264fb7f3ec281e?sid=f9944c5f-da38-484a-ad67-f3b92225e744
+https://www.loom.com/share/87f1ecafcaa340ea854a6fc62688feae
 
 # Where is it used?
 This app can be used in any app that requires user to set profile picture and cover image. It can be used in social media apps like Facebook, Instagram, Twitter, etc. It can also be used in other apps like e-commerce apps, food delivery apps, etc.
