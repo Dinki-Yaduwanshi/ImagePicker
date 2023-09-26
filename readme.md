@@ -1,5 +1,5 @@
 # The IMAGE-PICKER APP
-I used two open-source projects to create an easy and customizable way to pick images in Android apps. It can save you time and be a starting point for your own app. You can create a profile activity along with coverImage such that thay give user freedom to choose and set pictures by accessing gallery and camera along with bunch of features . Here's a summarized list of what it offers.
+I used two open-source projects to create an easy and customizable way to pick images in Android apps. It can save you time and be a starting point for your own app. You can create a profile activity along with coverImage such that they give user freedom to choose and set pictures by accessing gallery and camera along with bunch of features . Here's a summarized list of what it offers.
 
 1. Easy to Use: You can quickly add image picking to your app.
 2. Make it Yours: You can change how it looks and works to match your app's style.
